@@ -277,7 +277,7 @@ func (ca *CAImpl) newCertificate(domains []string, ips []net.IP, key crypto.Publ
 		}
 	}
 
-	certNotAfter := time.Now().AddDate(5, 0, 0)
+	certNotAfter := time.Now().Add(time.Minute * 2)
 	if notAfter != "" {
 		certNotAfter, err = time.Parse(time.RFC3339, notAfter)
 		if err != nil {
